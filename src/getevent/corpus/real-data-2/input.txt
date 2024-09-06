@@ -1,0 +1,100 @@
+add device 1: /dev/input/event6
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sm6150-idp-snd-card USB_3_5 Jack"
+  location: "ALSA"
+  id:       ""
+  version:  1.0.1
+  events:
+    SW  (0005): 0002  0004  0013 
+  input props:
+    <none>
+add device 2: /dev/input/event5
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sm6150-idp-snd-card Button Jack"
+  location: "ALSA"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 00e2  0101  0102  0103  0104  0105 
+  input props:
+    <none>
+add device 3: /dev/input/event4
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sm6150-idp-snd-card Headset Jack"
+  location: "ALSA"
+  id:       ""
+  version:  1.0.1
+  events:
+    SW  (0005): 0002  0004  0006  0007  0010  0011  0012  0013 
+  input props:
+    <none>
+add device 4: /dev/input/event1
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "uinput-goodix"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 0066  0067  0069  006a  006c  0072  0073  0074 
+                008b  009e  00d4  00d8  00d9 
+  input props:
+    <none>
+add device 5: /dev/input/event3
+  bus:      0019
+  vendor    0001
+  product   0001
+  version   0100
+  name:     "gpio-keys"
+  location: "gpio-keys/input0"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 0073 
+  input props:
+    <none>
+add device 6: /dev/input/event0
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "qpnp_pon"
+  location: "qpnp_pon/input0"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 0072  0074 
+  input props:
+    <none>
+add device 7: /dev/input/event2
+  bus:      0000
+  vendor    beef
+  product   dead
+  version   28bb
+  name:     "goodix_ts"
+  location: "goodix_ts/input0"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 008f  0145  014a  0152  0162 
+    ABS (0003): 0000  : value 0, min 0, max 1079, fuzz 0, flat 0, resolution 0
+                0001  : value 0, min 0, max 2339, fuzz 0, flat 0, resolution 0
+                002f  : value 0, min 0, max 20, fuzz 0, flat 0, resolution 0
+                0032  : value 0, min 0, max 127, fuzz 0, flat 0, resolution 0
+                0033  : value 0, min 0, max 127, fuzz 0, flat 0, resolution 0
+                0035  : value 0, min 0, max 1079, fuzz 0, flat 0, resolution 0
+                0036  : value 0, min 0, max 2339, fuzz 0, flat 0, resolution 0
+                0039  : value 0, min 0, max 65535, fuzz 0, flat 0, resolution 0
+  input props:
+    INPUT_PROP_DIRECT

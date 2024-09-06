@@ -1,0 +1,388 @@
+{
+  "number": 1,
+  "path": "/dev/input/event6",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sm6150-idp-snd-card USB_3_5 Jack",
+  "location": "ALSA",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      19
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 2,
+  "path": "/dev/input/event5",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sm6150-idp-snd-card Button Jack",
+  "location": "ALSA",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      226
+    ],
+    [
+      1,
+      257
+    ],
+    [
+      1,
+      258
+    ],
+    [
+      1,
+      259
+    ],
+    [
+      1,
+      260
+    ],
+    [
+      1,
+      261
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 3,
+  "path": "/dev/input/event4",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sm6150-idp-snd-card Headset Jack",
+  "location": "ALSA",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      5,
+      18
+    ],
+    [
+      5,
+      19
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 4,
+  "path": "/dev/input/event1",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "uinput-goodix",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      102
+    ],
+    [
+      1,
+      103
+    ],
+    [
+      1,
+      105
+    ],
+    [
+      1,
+      106
+    ],
+    [
+      1,
+      108
+    ],
+    [
+      1,
+      114
+    ],
+    [
+      1,
+      115
+    ],
+    [
+      1,
+      116
+    ],
+    [
+      1,
+      139
+    ],
+    [
+      1,
+      158
+    ],
+    [
+      1,
+      212
+    ],
+    [
+      1,
+      216
+    ],
+    [
+      1,
+      217
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 5,
+  "path": "/dev/input/event3",
+  "bus": 25,
+  "vendor": 1,
+  "product": 1,
+  "version": 256,
+  "name": "gpio-keys",
+  "location": "gpio-keys/input0",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      115
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 6,
+  "path": "/dev/input/event0",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "qpnp_pon",
+  "location": "qpnp_pon/input0",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      114
+    ],
+    [
+      1,
+      116
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 7,
+  "path": "/dev/input/event2",
+  "bus": 0,
+  "vendor": 48879,
+  "product": 57005,
+  "version": 10427,
+  "name": "goodix_ts",
+  "location": "goodix_ts/input0",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      143
+    ],
+    [
+      1,
+      325
+    ],
+    [
+      1,
+      330
+    ],
+    [
+      1,
+      338
+    ],
+    [
+      1,
+      354
+    ]
+  ],
+  "abs_code": 3,
+  "abs_events": [
+    {
+      "code": 0,
+      "value": 0,
+      "min": 0,
+      "max": 1079,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 1,
+      "value": 0,
+      "min": 0,
+      "max": 2339,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 47,
+      "value": 0,
+      "min": 0,
+      "max": 20,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 50,
+      "value": 0,
+      "min": 0,
+      "max": 127,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 51,
+      "value": 0,
+      "min": 0,
+      "max": 127,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 53,
+      "value": 0,
+      "min": 0,
+      "max": 1079,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 54,
+      "value": 0,
+      "min": 0,
+      "max": 2339,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 57,
+      "value": 0,
+      "min": 0,
+      "max": 65535,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    }
+  ],
+  "input_props": [
+    "INPUT_PROP_DIRECT"
+  ]
+}
