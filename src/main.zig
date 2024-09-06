@@ -4,9 +4,11 @@ const io = std.io;
 const os = std.os;
 const json = std.json;
 const log = std.log;
+const mem = std.mem;
 
 const clap = @import("clap");
 const adb = @import("adb.zig");
+const ui = @import("uinput.zig");
 const GeteventParser = @import("getevent/Parser.zig");
 
 pub fn main() !void {
@@ -19,9 +21,11 @@ pub fn main() !void {
     const al = gpa.allocator();
 
     const params = comptime clap.parseParamsComptime(
-        \\ -h, --help		Display this help and exit.
-        \\ -l, --list-devices	Dump devices as list of json device specs.
-        \\ -p, --parse-devices	Dump devices as list of json parsed from stdin (result from `adb shell getevent -pi`).
+        \\ -h, --help			Display this help and exit.
+        \\ -l, --list-devices		Dump devices as list of json device specs.
+        \\ -p, --parse-devices		Dump devices as list of json parsed from stdin (result from `adb shell getevent -pi`).
+        \\ <str>...
+        \\
     );
 
     var diag = clap.Diagnostic{};
@@ -36,6 +40,25 @@ pub fn main() !void {
 
     if (res.args.help != 0 or os.argv.len == 1) {
         return clap.help(io.getStdErr().writer(), clap.Help, &params, .{});
+    }
+
+    if (res.positionals.len > 0) {
+        const dev_name = res.positionals[0];
+
+        try adb.startServer(al);
+
+        const src, const parser = try adb.getDevices(al);
+        defer parser.deinit();
+        defer al.free(src);
+
+        for (parser.specs.items) |dev| {
+            if (mem.eql(u8, dev_name, dev.name)) {
+                const uidev = try ui.fromDeviceSpec(al, dev);
+                std.time.sleep(std.time.ns_per_s * 60);
+                defer uidev.deinit();
+            }
+        }
+        return;
     }
 
     if (res.args.@"parse-devices" != 0) {

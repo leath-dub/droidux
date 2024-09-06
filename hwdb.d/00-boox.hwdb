@@ -1,0 +1,4 @@
+evdev:name:onyx_emp_Wacom I2C Digitizer:dmi:*
+ EVDEV_ABS_00=::20966
+ EVDEV_ABS_01=::15725
+ EVDEV_ABS_25=::400

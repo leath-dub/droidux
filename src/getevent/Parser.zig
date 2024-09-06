@@ -102,7 +102,7 @@ pub const DeviceSpec = struct {
     abs_code: ?u16 = null,
     abs_events: JsonArray(AbsEvent) = .{}, // ABS are handled separately as they have extra data
 
-    input_props: JsonArray([]const u8) = undefined,
+    input_props: JsonArray([]const u8) = .{},
 };
 
 src: []const u8,
@@ -388,31 +388,6 @@ fn events(self: *Self, normal_events: *std.ArrayListUnmanaged(meta.Tuple(&.{ Cod
 
 pub fn deinit(self: Self) void {
     self.arena.deinit();
-}
-
-const EventTypeConstant = enum {
-    KEY,
-    REL,
-    ABS,
-    MSC,
-    LED,
-    SND,
-    FF,
-    SW,
-};
-
-pub fn constantToSetBit(constant: Token) c_int {
-    return switch (constant) {
-        .constant => |value| {
-            const tag = meta.stringToEnum(EventTypeConstant, value.substr) orelse unreachable;
-            return switch (tag) {
-                inline else => |t| {
-                    return @field(c, "UI_SET_" ++ @tagName(t) ++ "BIT");
-                },
-            };
-        },
-        else => unreachable,
-    };
 }
 
 // TODO test boundry cases (empty input etc)

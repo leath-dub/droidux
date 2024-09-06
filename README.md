@@ -21,3 +21,24 @@ If this does not work follow (androids guide)[https://developer.android.com/stud
 
 On the distro I use `voidlinux`. I install `android-tools` and `android-udev-rules`. Please open an issue
 about your distro so I can help you to get it working and update the readme.
+
+# udev rules
+
+Depending on your distro, where you put the udev rules file may differ, for `voidlinux` you put the following
+in `/usr/lib/udev/rules.d/51-droidux.rules`:
+
+```
+KERNEL="uinput", USER="<username>"
+```
+
+# hwdb file
+
+Because hardware is broken you have to manually configure the initial values of many hardware devices. These end up
+as a `hwdb`. I am not that knowledable in this so I will need a bit of help from contributors if they need there
+device to work.
+
+```
+sudo udevadm hwdb --root=/ --update
+```
+
+^- update hwdb.bin file
