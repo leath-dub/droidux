@@ -197,6 +197,16 @@ fn number(self: *Self) ?Token {
     const oldPos = self.pos;
     while (true) {
         switch (self.input[self.pos]) {
+            '*' => {
+                // For some reason sometimes the event key numbers are postfixed by a '*'
+                // Just skip it !
+                const actual_end = self.pos;
+                if (!self.incPos(1)) {
+                    self.finished = true;
+                    return null;
+                }
+                return .{ .number = TokenValue.init(self.input, oldPos, actual_end - 1) };
+            },
             '-', '.', '0'...'9', 'a'...'f' => if (!self.incPos(1)) {
                 self.finished = true;
                 return null;

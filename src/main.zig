@@ -51,11 +51,11 @@ pub fn main() !void {
         defer parser.deinit();
         defer al.free(src);
 
-        for (parser.specs.items) |dev| {
-            if (mem.eql(u8, dev_name, dev.name)) {
-                const uidev = try ui.fromDeviceSpec(al, dev);
-                std.time.sleep(std.time.ns_per_s * 60);
+        for (parser.specs.items) |dspec| {
+            if (mem.eql(u8, dev_name, dspec.name)) {
+                const uidev = try ui.fromDeviceSpec(al, dspec);
                 defer uidev.deinit();
+                try adb.proxyEvents(al, dspec, uidev);
             }
         }
         return;

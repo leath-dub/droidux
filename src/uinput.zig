@@ -5,7 +5,7 @@ const linux = std.os.linux;
 const posix = std.posix;
 const meta = std.meta;
 
-const c = @cImport(@cInclude("linux/uinput.h"));
+pub const c = @cImport(@cInclude("linux/uinput.h"));
 const DeviceSpec = @import("getevent/Parser.zig").DeviceSpec;
 
 alloc: mem.Allocator,
@@ -92,7 +92,15 @@ pub fn fromDeviceSpec(al: mem.Allocator, spec: DeviceSpec) !Self {
     }
 
     const Props = enum {
+        INPUT_PROP_POINTER,
         INPUT_PROP_DIRECT,
+        INPUT_PROP_BUTTONPAD,
+        INPUT_PROP_SEMI_MT,
+        INPUT_PROP_TOPBUTTONPAD,
+        INPUT_PROP_POINTING_STICK,
+        INPUT_PROP_ACCELEROMETER,
+        INPUT_PROP_MAX,
+        INPUT_PROP_CNT,
     };
 
     for (spec.input_props.arr.items) |prop| {
@@ -100,7 +108,7 @@ pub fn fromDeviceSpec(al: mem.Allocator, spec: DeviceSpec) !Self {
         const prop_id = switch (propt) {
             inline else => |e| @field(c, @tagName(e)),
         };
-        try errnoToErr(linux.syscall3(.ioctl, ioctlHandle(dev), c.UI_SET_PROPBIT, prop_id));
+        try errnoToErr(linux.syscall3(.ioctl, ioctlHandle(dev), c.UI_SET_PROPBIT, @intCast(prop_id)));
     }
 
     try errnoToErr(linux.syscall3(.ioctl, ioctlHandle(dev), c.UI_DEV_SETUP, @intFromPtr(setup)));
@@ -116,6 +124,20 @@ pub fn fromDeviceSpec(al: mem.Allocator, spec: DeviceSpec) !Self {
         .dev = dev,
         .setup = setup,
     };
+}
+
+pub inline fn emit(self: Self, ev: @Vector(2, u16), data: u32) void {
+    const ie: c.input_event = .{
+        .code = ev[1],
+        .type = ev[0],
+        .value = @bitCast(data),
+        .time = .{
+            .tv_sec = 0,
+            .tv_usec = 0,
+        },
+    };
+
+    _ = self.dev.write(mem.asBytes(&ie)) catch unreachable;
 }
 
 pub fn deinit(self: Self) void {
