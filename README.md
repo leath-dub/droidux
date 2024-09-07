@@ -183,5 +183,3 @@ This sets up the environment for the following service script, which I put in `$
 
 exec droidux "$(cat "$TURNSTILE_ENV_DIR/DROIDUX_DEVICE")"
 ```
-
-## How ?
