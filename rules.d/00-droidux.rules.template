@@ -1,0 +1,1 @@
+KERNEL=="uinput", GROUP="<your user name here>"

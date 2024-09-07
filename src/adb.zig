@@ -3,7 +3,9 @@ const mem = std.mem;
 const log = std.log;
 const meta = std.meta;
 const io = std.io;
+const fs = std.fs;
 const fmt = std.fmt;
+const posix = std.posix;
 const Child = std.process.Child;
 
 const GeteventParser = @import("getevent/Parser.zig");
@@ -56,7 +58,7 @@ pub fn getDevices(al: mem.Allocator) !meta.Tuple(&.{ []u8, GeteventParser }) {
 const MAGIC_BUFLEN = "0000 0000 00000000\n".len;
 const MAX_BUFFERED_EVENTS = 8;
 
-// Black magic hex number converter
+// Faster hex string to number conversion
 pub inline fn intOfHex(comptime T: type, hex: []const u8) T {
     var r: T = 0;
     for (hex) |d| {
@@ -66,11 +68,29 @@ pub inline fn intOfHex(comptime T: type, hex: []const u8) T {
     return r;
 }
 
+// Cursed signal handling shenanigans
+// I think anybody who has written signal handlers has sinned
+// (forgive me)
+var stdout_ref: *?fs.File = undefined;
+pub fn handleUSR1(_: i32) callconv(.C) void {
+    stdout_ref.*.?.close();
+    stdout_ref.* = null;
+}
+
 pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void {
     var child = Child.init(&.{ "adb", "shell", "getevent", spec.path }, al);
     child.stderr_behavior = .Pipe;
     child.stdout_behavior = .Pipe;
     try child.spawn();
+
+    // Register sigaction to allow user to stop proxying events
+    const act: posix.Sigaction = .{
+        .flags = 0,
+        .handler = .{ .handler = handleUSR1 },
+        .mask = posix.empty_sigset,
+    };
+    try posix.sigaction(posix.SIG.USR1, &act, null);
+    try posix.sigaction(posix.SIG.INT, &act, null);
 
     // This is a bit of a mess however I don't want to pay the
     // cost of a vtable by using a reader, and I don't want to needless
@@ -91,8 +111,12 @@ pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void 
     var readh: usize = 0;
     const ios = child.stdout.?;
 
+    stdout_ref = &child.stdout; // set pointer to this stream
+
+    log.info("Proxying device events. send SIGUSR1 or SIGINT (CTRL+C) signal to stop.", .{});
+
     while (true) {
-        const bytes_read = (try std.posix.read(ios.handle, ev_data[readh..])) + readh;
+        const bytes_read = (std.posix.read(ios.handle, ev_data[readh..]) catch break) + readh;
         const part = bytes_read % MAGIC_BUFLEN;
 
         // Emit the complete read events
@@ -121,5 +145,8 @@ pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void 
         }
     }
 
-    _ = try child.wait();
+    // If we get here it means we want to quit, kill the child !
+    _ = try child.kill();
+
+    log.info("Stopped listening due to interrupt.", .{});
 }
