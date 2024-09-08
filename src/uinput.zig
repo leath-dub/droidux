@@ -2,6 +2,7 @@ const std = @import("std");
 const fs = std.fs;
 const mem = std.mem;
 const log = std.log;
+const info = @import("log.zig").info;
 const linux = std.os.linux;
 const posix = std.posix;
 const meta = std.meta;
@@ -118,7 +119,7 @@ pub fn fromDeviceSpec(al: mem.Allocator, spec: DeviceSpec) !Self {
     var dname: [16:0]u8 = undefined;
     try errnoToErr(linux.syscall3(.ioctl, ioctlHandle(dev), c.UI_GET_SYSNAME(@sizeOf(@TypeOf(dname))), @intFromPtr(&dname)));
 
-    log.info("Created device: {s}", .{dname[0 .. mem.indexOfSentinel(u8, 0, &dname) + 1]});
+    info("Created device: {s}", .{dname[0 .. mem.indexOfSentinel(u8, 0, &dname) + 1]});
 
     return .{
         .alloc = al,

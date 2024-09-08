@@ -1,6 +1,7 @@
 const std = @import("std");
 const mem = std.mem;
 const log = std.log;
+const info = @import("log.zig").info;
 const meta = std.meta;
 const io = std.io;
 const fs = std.fs;
@@ -113,7 +114,7 @@ pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void 
 
     stdout_ref = &child.stdout; // set pointer to this stream
 
-    log.info("Proxying device events. send SIGUSR1 or SIGINT (CTRL+C) signal to stop.", .{});
+    info("Proxying device events. send SIGUSR1 or SIGINT (CTRL+C) signal to stop.", .{});
 
     while (true) {
         const bytes_read = (std.posix.read(ios.handle, ev_data[readh..]) catch break) + readh;
@@ -148,5 +149,5 @@ pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void 
     // If we get here it means we want to quit, kill the child !
     _ = try child.kill();
 
-    log.info("Stopped listening due to interrupt.", .{});
+    info("Stopped listening due to interrupt.", .{});
 }
