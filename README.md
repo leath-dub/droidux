@@ -59,15 +59,13 @@ or libinput not being happy about the initial values of certain devices.
 First make sure you have `udev` running on your distro. This is more than likely already setup however at least
 for voidlinux you need to make sure you the `udevd` service is running. Also I think on voidlinux you will have to add your user to the `plugdev` group.
 
-There is a template `udev` rules file in the repo `rules.d/00-droidux.rules.template`. It should look like this:
+There is a example `udev` rules file in the repo `rules.d/00-droidux.rules`. It should look like this:
 
 ```
-KERNEL=="uinput", GROUP="<your user name here>"
+KERNEL=="uinput", GROUP="wheel"
 ```
 
-Just replace the `<your user name here>` with your user name. If you need other people to use `droidux` you can
-create a group like `udev` and set all the users to be in that group. Then just `udev` on the right hand side
-of the `GROUP` instead of your user name.
+Either add your user to the `wheel` group or replace the "wheel" with your user name.
 
 #### Hwdb
 
