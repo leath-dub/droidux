@@ -1,0 +1,14 @@
+name: CI
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Build and Release
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mlugg/setup-zig@v1
+        with:
+          version: 0.13.0
+      - run: zig build -Doptimize=ReleaseFast -Dtarget=x86_64-linux-musl
+      - run: zig build -Doptimize=ReleaseFast -Dtarget=aarch64-linux-musl
+      - run: zig build -Doptimize=ReleaseFast -Dtarget=riscv64-linux-musl
