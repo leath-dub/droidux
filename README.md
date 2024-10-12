@@ -12,7 +12,22 @@ NOTE: this is a WIP and it will almost certainly have bugs, especially due to th
 
 ## Installation
 
-Soon TM.
+Binary builds are in the releases page on this repository: [latest one here](https://github.com/leath-dub/droidux/releases/latest).
+
+**IMPORTANT:** You still need to follow the steps below with binary release, you
+just don't need `zig` or have to build the project.
+
+### Example on how to download and install
+
+```sh
+curl -LO https://github.com/leath-dub/droidux/releases/download/latest/droidux-x86_64-linux-musl.xz
+xz -d droidux-x86_64-linux-musl.xz
+doas install -m +x droidux-x86_64-linux-musl /usr/local/bin/droidux
+```
+
+This will install `droidux` binary into `/usr/local/bin`.
+
+Replace `x86_64` with your CPU architecture (most likely you are `x86_64` too).
 
 ## Building
 
