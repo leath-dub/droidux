@@ -11,19 +11,24 @@ jobs:
       - uses: mlugg/setup-zig@v1
         with:
           version: 0.13.0
-      - run: zig build -Doptimize=ReleaseFast -Dtarget=x86_64-linux-musl
-      - run: xz -zc zig-out/bin/droidux > droidux-x86_64-linux-musl.xz 
-      - run: zig build -Doptimize=ReleaseFast -Dtarget=aarch64-linux-musl
-      - run: xz -zc zig-out/bin/droidux > droidux-aarch64-linux-musl.xz 
-      - run: zig build -Doptimize=ReleaseFast -Dtarget=riscv64-linux-musl
-      - run: xz -zc zig-out/bin/droidux > droidux-riscv64-linux-musl.xz 
+      - run: |
+         zig build -Doptimize=ReleaseFast -Dtarget=x86_64-linux-musl
+         xz -zc zig-out/bin/droidux > droidux-x86_64-linux-musl.xz 
+         zig build -Doptimize=ReleaseFast -Dtarget=aarch64-linux-musl
+         xz -zc zig-out/bin/droidux > droidux-aarch64-linux-musl.xz 
+         zig build -Doptimize=ReleaseFast -Dtarget=riscv64-linux-musl
+         xz -zc zig-out/bin/droidux > droidux-riscv64-linux-musl.xz 
 
-      - uses: marvinpinto/action-automatic-releases@latest
+      - uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Dev build"
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Development binary releases
+          draft: false
+          prerelease: false
           files: |
             droidux-x86_64-linux-musl.xz
             droidux-aarch64-linux-musl.xz
