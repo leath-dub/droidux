@@ -1,5 +1,4 @@
-name: CI
-
+name: Release
 jobs:
   test:
     runs-on: ubuntu-latest
