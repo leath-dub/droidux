@@ -12,5 +12,9 @@ jobs:
         with:
           version: 0.13.0
       - run: zig build -Doptimize=ReleaseFast -Dtarget=x86_64-linux-musl
+      - run: xz -zc zig-out/bin/droidux > droidux-x86_64-linux-musl.xz 
       - run: zig build -Doptimize=ReleaseFast -Dtarget=aarch64-linux-musl
+      - run: xz -zc zig-out/bin/droidux > droidux-aarch64-linux-musl.xz 
       - run: zig build -Doptimize=ReleaseFast -Dtarget=riscv64-linux-musl
+      - run: xz -zc zig-out/bin/droidux > droidux-riscv64-linux-musl.xz 
+      - run: ls
