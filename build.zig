@@ -32,12 +32,19 @@ pub fn build(b: *std.Build) void {
 
     const test_step = b.step("test", "Run unit tests");
 
+    const lexer_tests = b.addTest(.{
+        .root_source_file = b.path("src/getevent/Lexer.zig"),
+        .target = target,
+    });
+
     const parser_tests = b.addTest(.{
         .root_source_file = b.path("src/getevent/Parser.zig"),
         .target = target,
     });
 
     const run_parser_tests = b.addRunArtifact(parser_tests);
+    const run_lexer_tests = b.addRunArtifact(lexer_tests);
 
     test_step.dependOn(&run_parser_tests.step);
+    test_step.dependOn(&run_lexer_tests.step);
 }
