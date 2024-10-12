@@ -3,9 +3,9 @@ name: Release
 on: [workflow_dispatch]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  build-and-release:
     name: Build and Release
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: mlugg/setup-zig@v1
@@ -17,4 +17,14 @@ jobs:
       - run: xz -zc zig-out/bin/droidux > droidux-aarch64-linux-musl.xz 
       - run: zig build -Doptimize=ReleaseFast -Dtarget=riscv64-linux-musl
       - run: xz -zc zig-out/bin/droidux > droidux-riscv64-linux-musl.xz 
-      - run: ls
+
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Dev build"
+          files: |
+            droidux-x86_64-linux-musl.xz
+            droidux-aarch64-linux-musl.xz
+            droidux-riscv64-linux-musl.xz
