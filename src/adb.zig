@@ -80,7 +80,7 @@ pub fn handleUSR1(_: i32) callconv(.C) void {
 
 pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void {
     var child = Child.init(&.{ "adb", "shell", "getevent", spec.path }, al);
-    child.stderr_behavior = .Pipe;
+    child.stderr_behavior = .Ignore;
     child.stdout_behavior = .Pipe;
     try child.spawn();
 
@@ -116,9 +116,17 @@ pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void 
 
     info("Proxying device events. send SIGUSR1 or SIGINT (CTRL+C) signal to stop.", .{});
 
+    var read_of_0 = false;
+
     while (true) {
-        const bytes_read = (std.posix.read(ios.handle, ev_data[readh..]) catch break) + readh;
+        const bytes_read = (try ios.read(ev_data[readh..])) + readh;
         const part = bytes_read % MAGIC_BUFLEN;
+
+        // Read should block, read of 0 means its finished
+        if (bytes_read == readh) {
+            read_of_0 = true;
+            break;
+        }
 
         // Emit the complete read events
         const tot = bytes_read / MAGIC_BUFLEN;
@@ -149,5 +157,9 @@ pub fn proxyEvents(al: mem.Allocator, spec: DeviceSpec, vdev: VirtDevice) !void 
     // If we get here it means we want to quit, kill the child !
     _ = try child.kill();
 
-    info("Stopped listening due to interrupt.", .{});
+    if (read_of_0) {
+        info("Stopped listening due to read of 0 on device event listener.", .{});
+    } else {
+        info("Stopped listening due to interrupt.", .{});
+    }
 }
