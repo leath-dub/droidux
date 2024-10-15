@@ -1,0 +1,4 @@
+evdev:name:sec_e-pen:dmi:*
+ EVDEV_ABS_00=::13536
+ EVDEV_ABS_01=::22560
+ EVDEV_ABS_25=::4095
