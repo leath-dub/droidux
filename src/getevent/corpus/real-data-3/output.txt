@@ -1,0 +1,767 @@
+{
+  "number": 1,
+  "path": "/dev/input/event13",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sec_e-pen",
+  "location": "sec_e-pen",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      172
+    ],
+    [
+      1,
+      253
+    ],
+    [
+      1,
+      320
+    ],
+    [
+      1,
+      321
+    ],
+    [
+      1,
+      330
+    ],
+    [
+      1,
+      331
+    ],
+    [
+      5,
+      15
+    ]
+  ],
+  "abs_code": 3,
+  "abs_events": [
+    {
+      "code": 0,
+      "value": 3243,
+      "min": 0,
+      "max": 7315,
+      "fuzz": 4,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 1,
+      "value": 4563,
+      "min": 0,
+      "max": 15687,
+      "fuzz": 4,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 24,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 25,
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 26,
+      "value": 26,
+      "min": -63,
+      "max": 63,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 27,
+      "value": -1,
+      "min": -63,
+      "max": 63,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    }
+  ],
+  "input_props": []
+}
+{
+  "number": 2,
+  "path": "/dev/input/event12",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sec_touchproximity",
+  "location": "sec_touchproximity/input1",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [],
+  "abs_code": 3,
+  "abs_events": [
+    {
+      "code": 62,
+      "value": 255,
+      "min": 0,
+      "max": -1,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    }
+  ],
+  "input_props": [
+    "INPUT_PROP_DIRECT"
+  ]
+}
+{
+  "number": 3,
+  "path": "/dev/input/event11",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sec_touchpad",
+  "location": "sec_touchpad",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      143
+    ],
+    [
+      1,
+      280
+    ],
+    [
+      1,
+      281
+    ],
+    [
+      1,
+      325
+    ],
+    [
+      1,
+      328
+    ],
+    [
+      1,
+      330
+    ],
+    [
+      1,
+      333
+    ],
+    [
+      1,
+      334
+    ],
+    [
+      1,
+      335
+    ],
+    [
+      1,
+      455
+    ],
+    [
+      1,
+      550
+    ],
+    [
+      1,
+      702
+    ]
+  ],
+  "abs_code": 3,
+  "abs_events": [
+    {
+      "code": 0,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 1,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 47,
+      "value": 0,
+      "min": 0,
+      "max": 9,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 48,
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 49,
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 53,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 54,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 57,
+      "value": 0,
+      "min": 0,
+      "max": 65535,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    }
+  ],
+  "input_props": [
+    "INPUT_PROP_POINTER"
+  ]
+}
+{
+  "number": 4,
+  "path": "/dev/input/event10",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "sec_touchscreen",
+  "location": "sec_touchscreen",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      143
+    ],
+    [
+      1,
+      280
+    ],
+    [
+      1,
+      281
+    ],
+    [
+      1,
+      325
+    ],
+    [
+      1,
+      330
+    ],
+    [
+      1,
+      455
+    ],
+    [
+      1,
+      550
+    ],
+    [
+      1,
+      702
+    ]
+  ],
+  "abs_code": 3,
+  "abs_events": [
+    {
+      "code": 0,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 1,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 47,
+      "value": 0,
+      "min": 0,
+      "max": 9,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 48,
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 49,
+      "value": 0,
+      "min": 0,
+      "max": 255,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 53,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 54,
+      "value": 0,
+      "min": 0,
+      "max": 4095,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 57,
+      "value": 0,
+      "min": 0,
+      "max": 65535,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    }
+  ],
+  "input_props": [
+    "INPUT_PROP_DIRECT"
+  ]
+}
+{
+  "number": 5,
+  "path": "/dev/input/event9",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "als_rear",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "abs_code": 3,
+  "abs_events": [
+    {
+      "code": 0,
+      "value": 66369,
+      "min": 0,
+      "max": 0,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 1,
+      "value": 2048001,
+      "min": 0,
+      "max": 0,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 2,
+      "value": 2048001,
+      "min": 0,
+      "max": 0,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    },
+    {
+      "code": 3,
+      "value": 4096001,
+      "min": 0,
+      "max": 0,
+      "fuzz": 0,
+      "flat": 0,
+      "resolution": 0
+    }
+  ],
+  "input_props": []
+}
+{
+  "number": 6,
+  "path": "/dev/input/event8",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "grip_notifier",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      2,
+      0
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 7,
+  "path": "/dev/input/event7",
+  "bus": 24,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "grip_sensor",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 8,
+  "path": "/dev/input/event6",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "hall",
+  "location": "hall",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      5,
+      16
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 9,
+  "path": "/dev/input/event5",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "pmic_resin",
+  "location": "pmic_resin/input0",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      114
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 10,
+  "path": "/dev/input/event4",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "pmic_pwrkey",
+  "location": "pmic_pwrkey/input0",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      116
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 11,
+  "path": "/dev/input/event3",
+  "bus": 0,
+  "vendor": 0,
+  "product": 41568,
+  "version": 161,
+  "name": "sec_vibrator_inputff",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      21,
+      81
+    ],
+    [
+      21,
+      90
+    ],
+    [
+      21,
+      93
+    ],
+    [
+      21,
+      96
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 12,
+  "path": "/dev/input/event2",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "range_sensor",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      2,
+      9
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 13,
+  "path": "/dev/input/event1",
+  "bus": 0,
+  "vendor": 0,
+  "product": 0,
+  "version": 0,
+  "name": "meta_event",
+  "location": "",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      7
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}
+{
+  "number": 14,
+  "path": "/dev/input/event0",
+  "bus": 25,
+  "vendor": 1,
+  "product": 1,
+  "version": 256,
+  "name": "gpio-keys",
+  "location": "gpio-keys/input0",
+  "id": "",
+  "semver": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1,
+    "pre": null,
+    "build": null
+  },
+  "normal_events": [
+    [
+      1,
+      115
+    ]
+  ],
+  "abs_code": null,
+  "abs_events": [],
+  "input_props": []
+}

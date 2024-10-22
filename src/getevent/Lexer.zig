@@ -179,17 +179,18 @@ fn identOrKeyword(self: *Self) !Token {
         return .{ .constant = TokenValue.init(self.input, oldPos, self.pos - 1) };
     }
 
+    // TODO remove idents entirely as they are buggy due to the ambiguity of
+    // `vendor beef` -> beef is a hex number here not an ident !
+    // Also MAYBE make sure this is at least representable as hex ?
+
     const oldPos = self.pos;
-    while (ascii.isAlphabetic(self.input[self.pos])) {
+    while (ascii.isAlphanumeric(self.input[self.pos])) {
         if (!self.incPos(1)) {
             self.finished = true;
             break;
         }
     }
 
-    // TODO remove idents entirely as they are buggy due to the ambiguity of
-    // `vendor beef` -> beef is a hex number here not an ident !
-    // Also MAYBE make sure this is at least representable as hex ?
     return .{ .number = TokenValue.init(self.input, oldPos, self.pos - 1) };
 }
 

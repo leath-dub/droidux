@@ -1,0 +1,210 @@
+add device 1: /dev/input/event13
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sec_e-pen"
+  location: "sec_e-pen"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 00ac  00fd  0140  0141  014a  014b 
+    ABS (0003): 0000  : value 3243, min 0, max 7315, fuzz 4, flat 0, resolution 0
+                0001  : value 4563, min 0, max 15687, fuzz 4, flat 0, resolution 0
+                0018  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0019  : value 0, min 0, max 255, fuzz 0, flat 0, resolution 0
+                001a  : value 26, min -63, max 63, fuzz 0, flat 0, resolution 0
+                001b  : value -1, min -63, max 63, fuzz 0, flat 0, resolution 0
+    SW  (0005): 000f 
+  input props:
+    <none>
+add device 2: /dev/input/event12
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sec_touchproximity"
+  location: "sec_touchproximity/input1"
+  id:       ""
+  version:  1.0.1
+  events:
+    ABS (0003): 003e  : value 255, min 0, max -1, fuzz 0, flat 0, resolution 0
+  input props:
+    INPUT_PROP_DIRECT
+add device 3: /dev/input/event11
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sec_touchpad"
+  location: "sec_touchpad"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 008f  0118  0119  0145  0148  014a  014d  014e 
+                014f  01c7  0226  02be 
+    ABS (0003): 0000  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0001  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                002f  : value 0, min 0, max 9, fuzz 0, flat 0, resolution 0
+                0030  : value 0, min 0, max 255, fuzz 0, flat 0, resolution 0
+                0031  : value 0, min 0, max 255, fuzz 0, flat 0, resolution 0
+                0035  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0036  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0039  : value 0, min 0, max 65535, fuzz 0, flat 0, resolution 0
+  input props:
+    INPUT_PROP_POINTER
+add device 4: /dev/input/event10
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "sec_touchscreen"
+  location: "sec_touchscreen"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 008f  0118  0119  0145  014a  01c7  0226  02be 
+    ABS (0003): 0000  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0001  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                002f  : value 0, min 0, max 9, fuzz 0, flat 0, resolution 0
+                0030  : value 0, min 0, max 255, fuzz 0, flat 0, resolution 0
+                0031  : value 0, min 0, max 255, fuzz 0, flat 0, resolution 0
+                0035  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0036  : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
+                0039  : value 0, min 0, max 65535, fuzz 0, flat 0, resolution 0
+  input props:
+    INPUT_PROP_DIRECT
+add device 5: /dev/input/event9
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "als_rear"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    REL (0002): 0000  0003  0004  0005  0009 
+    ABS (0003): 0000  : value 66369, min 0, max 0, fuzz 0, flat 0, resolution 0
+                0001  : value 2048001, min 0, max 0, fuzz 0, flat 0, resolution 0
+                0002  : value 2048001, min 0, max 0, fuzz 0, flat 0, resolution 0
+                0003  : value 4096001, min 0, max 0, fuzz 0, flat 0, resolution 0
+  input props:
+    <none>
+add device 6: /dev/input/event8
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "grip_notifier"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    REL (0002): 0000 
+  input props:
+    <none>
+add device 7: /dev/input/event7
+  bus:      0018
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "grip_sensor"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    REL (0002): 0000  0001  0007  0009 
+  input props:
+    <none>
+add device 8: /dev/input/event6
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "hall"
+  location: "hall"
+  id:       ""
+  version:  1.0.1
+  events:
+    SW  (0005): 0010 
+  input props:
+    <none>
+add device 9: /dev/input/event5
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "pmic_resin"
+  location: "pmic_resin/input0"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 0072 
+  input props:
+    <none>
+add device 10: /dev/input/event4
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "pmic_pwrkey"
+  location: "pmic_pwrkey/input0"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 0074 
+  input props:
+    <none>
+add device 11: /dev/input/event3
+  bus:      0000
+  vendor    0000
+  product   a260
+  version   00a1
+  name:     "sec_vibrator_inputff"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    FF  (0015): 0051  005a  005d  0060 
+  input props:
+    <none>
+add device 12: /dev/input/event2
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "range_sensor"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    REL (0002): 0009 
+  input props:
+    <none>
+add device 13: /dev/input/event1
+  bus:      0000
+  vendor    0000
+  product   0000
+  version   0000
+  name:     "meta_event"
+  location: ""
+  id:       ""
+  version:  1.0.1
+  events:
+    REL (0002): 0006  0007 
+  input props:
+    <none>
+add device 14: /dev/input/event0
+  bus:      0019
+  vendor    0001
+  product   0001
+  version   0100
+  name:     "gpio-keys"
+  location: "gpio-keys/input0"
+  id:       ""
+  version:  1.0.1
+  events:
+    KEY (0001): 0073 
+  input props:
+    <none>
