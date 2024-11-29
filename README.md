@@ -179,6 +179,64 @@ pkill -USR1 droidux
 
 Or run `kill -USR1` after finding the pid of `droidux`.
 
+## Mapping tablet output
+
+The default behaviour on linux is to stretch the viewport of the tablet onto
+that of the screen.
+
+A good general resource for reading is this [archwiki](https://wiki.archlinux.org/title/Graphics_tablet) post.
+
+Depending on your tablet dimensions with respect to the screen you are mapping
+it onto (NOTE: width and height are swapped if you rotate the tablet*), your
+strategy for mapping may be different.
+
+if your tablets `width / height` is less than that of the monitor you are
+mapping to (e.g. `4 / 3 < 16 / 9`). You should fix the height to be the same as
+the monitor you are mapping to. If we fix the height, we must sacrifice some of
+the width of the monitor, so we need to calculate a horizontal offset position
+of the new viewport onto the monitors resolution and we need to find how wide
+the new viewport is. The following calculates these variables:
+`horizontal_offset` and `new_viewport_width`:
+
+```
+proportion_change_in_height = (tablet_height - monitor_width) / tablet_height
+change_in_width = tablet_width * proportion_change_in_height
+
+new_viewport_width = tablet_width - change_in_width
+horizontal_offset = (monitor_width - new_viewport_width) / 2
+```
+
+This basically just calculates the proportional change that happens if we
+linearly map the height of the tablets viewport to height of the monitors
+viewport. We just use this change to calculate the new view port and the offset
+that would center it on the screen.
+
+For example if we have a tablet with `width * height = 1872 * 1404` (ONYX BOOX
+        Note Air 2 orientated horizontally). If we calculate the values above we
+get `new_viewport_width = 1440` and `horizontal_offset = 240`.
+
+The same process applies for if you want to fix the width, if for example you
+have
+a `4:3` monitor and `16:9` tablet (lazy example).
+
+Now finally if you have these values, I know that at least for fellow sway users
+you can change the tablets mapping like so:
+
+```sh
+input "11551:299:onyx_emp_Wacom_I2C_Digitizer" map_to_region 240 0 1440 1080
+#                                  This is the width offset  --^ ^ ^-------- This is the new viewport
+#                                                                |
+#                                                                `-- Height offset stays the same
+```
+
+That first argument to `input` is the device identifier you can get by
+extracting the `identifier` field from `swaymsg`:
+
+```sh
+DROIDUX_DEVICE="onyx_emp_Wacom I2C Digitizer"
+swaymsg -rt get_inputs | jq -r '.[] | select(.name == "'"$DROIDUX_DEVICE"'").identifier'
+```
+
 ## Services
 
 I do not use systemd myself. However I plan to write a service file for it (unless somebody else beats me !).
