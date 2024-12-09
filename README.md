@@ -179,6 +179,10 @@ pkill -USR1 droidux
 
 Or run `kill -USR1` after finding the pid of `droidux`.
 
+## I dont want to iteract with tablet and computer at the same time!
+
+You can use a drawing app on the android device and just use the eraser or you could use https://play.google.com/store/apps/details?id=ch.dissem.apps.lightbox&hl=en-US (recommended) - this is just a simple app that is a blank white screen.
+
 ## Mapping tablet output
 
 The default behaviour on linux is to stretch the viewport of the tablet onto
