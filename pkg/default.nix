@@ -11,7 +11,12 @@ stdenvNoCC.mkDerivation {
   pname = "droidux";
   version = "572f903";
 
-  src = ../.;
+  src = fetchFromGitHub {
+    owner = "leath-dub";
+    repo = "droidux";
+    rev = "572f903901aadefe35a880187712fac442561b22";
+    sha256 = "sha256-beijaXRm1tdTMswTCQWxDPl46e18sl0g0KlLdq1/Knk=";
+  };
 
   nativeBuildInputs = [
     zig_0_13
