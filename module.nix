@@ -19,13 +19,11 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
-    programs.adb.enable = true;
-
     services.udev = lib.mkIf udev.enable {
       extraRules = fileContents ./rules.d;
       extraHwdb = fileContents ./hwdb.d;
     };
 
-    environment.systemPackages = [cfg.package];
+    environment.systemPackages = [cfg.package pkgs.android-tools];
   };
 }
