@@ -36,6 +36,8 @@ stdenvNoCC.mkDerivation {
     zig build install --global-cache-dir $(pwd)/.cache --prefix $out -Doptimize=ReleaseFast
   '';
 
+  dontUseZigInstall = true;
+
   meta = with lib; {
     homepage = "https://github.com/leath-dub/droidux";
     description = "Let your Linux device inherit the hardware components of your android device.";
