@@ -1,0 +1,3 @@
+evdev:name:onyx_emp_elan_pen:dmi:*
+   EVDEV_ABS_00=::60
+   EVDEV_ABS_01=::56
